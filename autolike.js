@@ -6,6 +6,7 @@
 // @author       jamhed
 // @match        https://www.instagram.com/
 // @require      http://code.jquery.com/jquery-latest.js
+// @downloadURL  https://raw.githubusercontent.com/jamhed/inst/master/autolike.js
 // @grant        none
 // ==/UserScript==
 /* jshint -W097 */
