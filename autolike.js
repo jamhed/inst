@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoLike
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.2.1
 // @description  Likes everything on Instagram
 // @author       jamhed
 // @match        https://www.instagram.com/
@@ -29,10 +29,13 @@ function store(uid, value, button) {
 }
 
 function check(uid, button) {
-    if ($(button).text() != "Like") {
+    var Text = $(button).text();
+    if (Text != "Like") {
+        console.log("skip:", uid, Text);
         return;
+    } else {
+        console.log("request info:", uid);
     }
-    console.log("check:" + uid);
     $.ajax({
         url: base + uid,
         type: 'GET',
@@ -56,7 +59,7 @@ function check(uid, button) {
 }
 
 setTimeout(function() {
-    var ids = $("article div section a").filter(function(i, a) { return $(a).attr("href") === "/"+$(a).html()+"/" });
+    var ids = $("section div div article header a").filter(function(i, a) { return $(a).attr("href") === "/"+$(a).html()+"/" });
     var buttons = $("article div section a[role='button']");
     ids.map(function (i, e) {
         check($(ids[i]).html(), buttons[i]);
