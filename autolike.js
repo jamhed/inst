@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoLike
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Likes everything on Instagram
 // @author       jamhed
 // @match        https://www.instagram.com/
