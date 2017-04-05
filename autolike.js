@@ -40,7 +40,7 @@ function check(uid, button) {
             console.log("found", uid, obj);
             try {
                 if  (obj && obj.value < 10 && Date.now() - obj.stamp > 86400) {
-                    store(uid, parseInt(obj.value)+1, button);
+                    store(uid, obj.counter+1, button);
                 }
             }
             catch(e) {
