@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoLike
 // @namespace    http://tampermonkey.net/
-// @version      0.2.2
+// @version      0.2.3
 // @description  Likes everything on Instagram
 // @author       jamhed
 // @match        https://www.instagram.com/
@@ -34,13 +34,13 @@ function check(uid, button) {
         console.log("skip:", uid, Text);
         return;
     } else {
-        console.log("request info:", uid, obj.counter, Date.now() - obj.date);
+        console.log("request info:", uid);
     }
     $.ajax({
         url: base + uid,
         type: 'GET',
         success: function(obj) {
-            console.log("found", uid, obj);
+            console.log("found", uid, obj.counter, Date.now() - obj.date);
             try {
                 if  (obj && (obj.counter < 10) && (Date.now() - obj.date > 86400)) {
                     store(uid, obj.counter+1, button);
