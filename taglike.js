@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TagLike
 // @namespace    http://tampermonkey.net/
-// @version      0.1.0
+// @version      0.1.1
 // @description  AutoLike
 // @author       jamhed
 // @match        https://www.instagram.com/explore/tags/*/
