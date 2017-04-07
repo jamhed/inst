@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoLike
 // @namespace    http://tampermonkey.net/
-// @version      0.2.3
+// @version      0.2.4
 // @description  Likes everything on Instagram
 // @author       jamhed
 // @match        https://www.instagram.com/
@@ -13,6 +13,7 @@
 'use strict';
 
 var base = 'https://kv.jamhed.tk/key/730abe4f-3e7c-4062-99eb-05e6634d2b4a/';
+var cache = {};
 
 function store(uid, value, button) {
     $.ajax({
@@ -33,9 +34,12 @@ function check(uid, button) {
     if (Text != "Like") {
         console.log("skip:", uid, Text);
         return;
-    } else {
-        console.log("request info:", uid);
     }
+    console.log("request info:", uid);
+    if (cache.uid) {
+        console.log("already requested, skip:", uid);
+    }
+    cache.uid = true;
     $.ajax({
         url: base + uid,
         type: 'GET',
