@@ -6,6 +6,7 @@
 // @author       jamhed
 // @match        https://www.instagram.com/explore/tags/*/
 // @require      http://code.jquery.com/jquery-latest.js
+// @downloadURL  https://raw.githubusercontent.com/jamhed/inst/master/taglike.js
 // @grant window.close
 // ==/UserScript==
 /* jshint -W097 */
